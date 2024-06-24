@@ -49,16 +49,7 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun Main(innerPadding: PaddingValues) {
-    val sample = listOf(
-        "Text 01",
-        "Text 02",
-        "Text 03",
-        "Text 04",
-        "Text 05",
-        "Text 06",
-        "Text 07",
-        "Text 08"
-    )
+    val sample = listOf("Text 01", "Text 02", "Text 03", "Text 04", "Text 05", "Text 06", "Text 07", "Text 08")
     var selected by remember { mutableIntStateOf(0) }
 
     Column(
