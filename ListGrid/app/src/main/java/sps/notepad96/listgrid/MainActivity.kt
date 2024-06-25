@@ -78,8 +78,8 @@ fun Main(innerPadding: PaddingValues) {
             }
             1 -> {
                 LazyHorizontalGrid(rows = GridCells.Adaptive(minSize = 350.dp)) {
-                    items(50) {
-                        ListGridItem(it)
+                    items(50) { index ->
+                        ListGridItem(index)
                     }
                 }
             }
