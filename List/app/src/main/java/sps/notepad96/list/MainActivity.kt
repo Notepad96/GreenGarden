@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -49,7 +50,16 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun Main(innerPadding: PaddingValues) {
-    val sample = listOf("Text 01", "Text 02", "Text 03", "Text 04", "Text 05", "Text 06", "Text 07", "Text 08")
+    val sample = listOf(
+        "Text 01",
+        "Text 02",
+        "Text 03",
+        "Text 04",
+        "Text 05",
+        "Text 06",
+        "Text 07",
+        "Text 08"
+    )
     var selected by remember { mutableIntStateOf(0) }
 
     Column(
@@ -77,6 +87,13 @@ fun Main(innerPadding: PaddingValues) {
                     }
                     items(sample) { text ->
                         ListItem(text = text)
+                        Spacer(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .height(1.dp)
+                                .padding(horizontal = 10.dp)
+                                .background(Color.Black)
+                        )
                     }
                     item {
                         ListFooter()
