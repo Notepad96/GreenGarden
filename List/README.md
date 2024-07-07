@@ -1,5 +1,5 @@
 # Preview
-https://greengarden9.blogspot.com/2024/06/compose-list-lazycolumn-lazyrow.html
+https://www.composeworld.xyz/2024/07/compose-scaffold.html
 <br/><br/>
 
 ![preview](preview.gif)
