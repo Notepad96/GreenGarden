@@ -13,9 +13,15 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Home
+import androidx.compose.material.icons.filled.Menu
 import androidx.compose.material3.Card
+import androidx.compose.material3.CenterAlignedTopAppBar
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.MediumTopAppBar
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
@@ -44,9 +50,9 @@ class MainActivity : ComponentActivity() {
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun Main() {
-    val scrollBehavior = TopAppBarDefaults.enterAlwaysScrollBehavior()  // 맨 위 혹은 위로 스크롤 할 때 나타남
+//    val scrollBehavior = TopAppBarDefaults.enterAlwaysScrollBehavior()  // 맨 위 혹은 위로 스크롤 할 때 나타남
 //    val scrollBehavior = TopAppBarDefaults.exitUntilCollapsedScrollBehavior() // 맨 위인 경우만 나타남
-//    val scrollBehavior = TopAppBarDefaults.pinnedScrollBehavior() // 화면 상단의 고정
+    val scrollBehavior = TopAppBarDefaults.pinnedScrollBehavior() // 화면 상단의 고정
 
     Scaffold(
         topBar = { TopBar(scrollBehavior = scrollBehavior) }
@@ -84,17 +90,23 @@ fun Main() {
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun TopBar(scrollBehavior: TopAppBarScrollBehavior) {
-    TopAppBar(
+    CenterAlignedTopAppBar(
         scrollBehavior = scrollBehavior, // 변수 연결
+        navigationIcon = {
+            Icon(Icons.Filled.Menu, "menu", modifier = Modifier.padding(start = 10.dp))
+        },
         title = {
             Text(
-                text = "TopBar Scroll Test",
-                style = MaterialTheme.typography.headlineMedium
+                text = "TopBar Scroll",
+                style = MaterialTheme.typography.headlineSmall
             )
         },
+        actions = {
+            Icon(Icons.Filled.Home, "home", modifier = Modifier.padding(end = 10.dp))
+        },
         colors = TopAppBarDefaults.topAppBarColors(
-            containerColor = Color.Green,
-            scrolledContainerColor = Color.Yellow   // 스크롤 중 TopBar 배경색
+            containerColor = Color(137, 228, 153, 255),
+            scrolledContainerColor = Color(71, 129, 230, 255)   // 스크롤 중 TopBar 배경색
         )
     )
 }
