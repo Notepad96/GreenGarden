@@ -90,7 +90,6 @@ fun MyButton01() {
     }
 }
 
-@SuppressLint("UnrememberedMutableInteractionSource")
 @Composable
 fun MyButton02() {
     var num by remember { mutableIntStateOf(2) }
@@ -116,7 +115,6 @@ fun MyButton02() {
 @Composable
 fun MyButton03() {
     var checked by remember { mutableStateOf(false) }
-
     OutlinedIconToggleButton(
         checked = checked, onCheckedChange = { checked = !checked },
         colors = IconButtonDefaults.outlinedIconToggleButtonColors(
