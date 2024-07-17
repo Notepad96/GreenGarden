@@ -49,6 +49,7 @@ fun Main(innerPadding: PaddingValues) {
     val onDismissRequest = { value: Boolean ->
         showSheet = value
     }
+    MySheet(showSheet, text, onDismissRequest)
 
     Row(
         modifier = Modifier
@@ -70,8 +71,6 @@ fun Main(innerPadding: PaddingValues) {
             Text(text = "Item 02")
         }
     }
-
-    MySheet(showSheet, text, onDismissRequest)
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -80,10 +79,12 @@ fun MySheet(showSheet: Boolean, text: String, onDismissRequest: (Boolean) -> Uni
     if (showSheet) {
         ModalBottomSheet(onDismissRequest = { onDismissRequest(false) }) {
             ListItem(
-                headlineContent = { Text(text = "$text - Modify") },
+                overlineContent = { Text(text = text) },
+                headlineContent = { Text(text = "Modify") },
                 leadingContent = { Icon(imageVector = Icons.Filled.Edit, contentDescription = "") })
             ListItem(
-                headlineContent = { Text(text = "$text - Delete") },
+                supportingContent = { Text(text = text)},
+                headlineContent = { Text(text = "Delete") },
                 leadingContent = { Icon(imageVector = Icons.Filled.Delete, contentDescription = "") })
         }
     }
