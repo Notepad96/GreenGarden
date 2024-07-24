@@ -58,8 +58,6 @@ fun Main(innerPadding: PaddingValues) {
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.SpaceAround
     ) {
-        Text(text = text, fontSize = 24.sp)
-
         ExposedDropdownMenuBox(expanded = expanded, onExpandedChange = { expanded = !expanded }) {
             OutlinedTextField(
                 value = text, onValueChange = {}, modifier = Modifier.menuAnchor(),
@@ -80,5 +78,7 @@ fun Main(innerPadding: PaddingValues) {
                 }
             }
         }
+
+        Text(text = text, fontSize = 24.sp)
     }
 }
