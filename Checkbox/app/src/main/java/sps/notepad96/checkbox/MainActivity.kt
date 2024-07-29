@@ -63,6 +63,7 @@ fun Main(innerPadding: PaddingValues) {
     ) {
         Text(text = "Select Food", fontSize = 28.sp)
 
+        // All Select
         Spacer(modifier = Modifier.height(8.dp))
         Row(verticalAlignment = Alignment.CenterVertically) {
             Text(text = "All Select", fontSize = 20.sp)
@@ -74,6 +75,7 @@ fun Main(innerPadding: PaddingValues) {
             })
         }
 
+        // Checkbox Rows
         sample.forEachIndexed { index, s ->
             Row(
                 verticalAlignment = Alignment.CenterVertically,
@@ -90,7 +92,8 @@ fun Main(innerPadding: PaddingValues) {
         }
         Spacer(modifier = Modifier.height(16.dp))
 
-        Text("Selected : ${checkList.withIndex().filter { it.value }.map { sample[it.index] }}",
+        // Checked Items
+        Text("checked : ${checkList.withIndex().filter { it.value }.map { sample[it.index] }}",
             fontSize = 18.sp
         )
     }
