@@ -23,6 +23,7 @@ import androidx.compose.material.icons.filled.Search
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -30,6 +31,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.text.TextStyle
@@ -54,9 +56,11 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun Main(innerPadding: PaddingValues) {
-    var text01 by remember { mutableStateOf("text01") }
+    var text01 by remember { mutableStateOf("") }
     Column(
-        modifier = Modifier.padding(innerPadding).fillMaxSize(),
+        modifier = Modifier
+            .padding(innerPadding)
+            .fillMaxSize(),
         verticalArrangement = Arrangement.SpaceAround,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
@@ -76,8 +80,8 @@ fun MyBasicTextField(
             .size(width = 250.dp, height = 50.dp)
             .border(width = 1.dp, color = Color.Gray, shape = RoundedCornerShape(20)),
         textStyle = TextStyle(color = Color.Black, fontSize = 20.sp),
-//        cursorBrush =  Brush.verticalGradient(colors = listOf(Color(0xFF2193b0), Color(0xFF6dd5ed))),
-        cursorBrush = SolidColor(Color.Green),
+        cursorBrush =  Brush.verticalGradient(colors = listOf(Color(0xFF2193b0), Color(0xFF6dd5ed))),
+//        cursorBrush = SolidColor(Color.Green),
         decorationBox = { innerTextField ->
             Row(verticalAlignment = Alignment.CenterVertically) {
                 Spacer(modifier = Modifier.width(10.dp))
